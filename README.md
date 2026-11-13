@@ -1,6 +1,6 @@
-# E-Commerce Product Multi-Filter Sidebar
+# VIBZO: E-Commerce Product Multi-Filter Sidebar
 
-A marketplace browsing interface where shoppers narrow a product inventory using three
+A VIBZO browsing interface where shoppers narrow a product inventory using three
 simultaneous filters (category, price range, minimum star rating), with instant updates
 and a server-side "Sort By" control.
 
@@ -89,3 +89,29 @@ curl "http://localhost:3000/api/products?categories=Footwear&minRating=4&sort=pr
 - Ratings run from 0 to 5 in tenths. Star display rounds to whole stars.
 - The catalog is generated from a fixed seed, so the same products appear on every run.
 - "Any rating" is the default radio option, meaning no star constraint.
+
+## Testing
+
+```bash
+npm test           # 15 unit tests for filtering, sorting, parsing and the catalog
+npm run test:e2e   # 28 browser checks: every checkbox, radio, slider, button and the sort dropdown
+npm run test:all   # both of the above
+```
+
+The browser suite needs Python 3 with Playwright (`pip install playwright && playwright install chromium`).
+It starts its own server on port 3100.
+
+## Requirement coverage
+
+| Requirement | Where it is met |
+| --- | --- |
+| Sticky left filter panel with category checklist, price range slider, star radios | `public/index.html` (`aside.sidebar`), `public/styles.css` |
+| Product cards with thumbnail, price, star rating and name | `createCard` in `public/app.js` |
+| Instant updates on every click or slider move, with no Submit button | Change handlers in `public/app.js` |
+| Empty result shows "No items match your criteria." with a Reset filters button | `renderResults` and `#emptyState` |
+| Single-pass intersect filter: category AND price bounds AND minimum rating | `applyFilters` in `src/services/filterService.js` |
+| Clearing every filter returns the full inventory | Null checks in `applyFilters`, tested in `test/` |
+| Sort By dropdown at top right of grid: Price Low to High, Top Rated First | `#sortSelect` and `SORT_OPTIONS` |
+| Filter the original dataset first, then sort the survivors | `applyFilters` (filter loop, then `matches.sort`) |
+| Business logic on the server, presentation in the browser | `server.js`, `src/services/`, `public/app.js` |
+| Clean architecture and incremental Git history | Layered folders; one commit per stage |

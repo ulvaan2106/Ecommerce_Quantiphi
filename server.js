@@ -92,7 +92,7 @@ function handleRequest(req, res) {
 if (require.main === module) {
   const PORT = Number(process.env.PORT) || 3000;
   http.createServer(handleRequest).listen(PORT, () => {
-    console.log(`Marketplace running at http://localhost:${PORT}`);
+    console.log(`VIBZO running at http://localhost:${PORT}`);
   });
 }
 

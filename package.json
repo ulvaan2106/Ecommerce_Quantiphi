@@ -2,11 +2,13 @@
   "name": "ecommerce-filter-sidebar",
   "version": "1.0.0",
   "private": true,
-  "description": "Marketplace product browser with a multi-filter sidebar, server-side filtering and sorting.",
+  "description": "VIBZO product browser with a multi-filter sidebar, server-side filtering and sorting.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "test:e2e": "python3 e2e/ui_test.py",
+    "test:all": "node --test && python3 e2e/ui_test.py"
   },
   "engines": {
     "node": ">=18"
