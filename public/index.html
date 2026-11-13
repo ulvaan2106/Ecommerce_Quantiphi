@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marketplace | Browse Products</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Marketplace</h1>
+    <span class="total" id="total"></span>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="Product filters">
+      <div class="sidebar-head">
+        <h2>Filters</h2>
+        <button type="button" class="link-btn" id="resetBtn">Clear all</button>
+      </div>
+
+      <section class="filter-group">
+        <h3>Category</h3>
+        <div id="categoryList" class="checklist"></div>
+      </section>
+
+      <section class="filter-group">
+        <h3>Price (₹)</h3>
+        <div class="range">
+          <div class="range-track"></div>
+          <div class="range-fill" id="rangeFill"></div>
+          <input type="range" id="priceMin" aria-label="Minimum price">
+          <input type="range" id="priceMax" aria-label="Maximum price">
+        </div>
+        <div class="range-labels">
+          <span id="priceMinLabel"></span>
+          <span id="priceMaxLabel"></span>
+        </div>
+      </section>
+
+      <section class="filter-group">
+        <h3>Minimum rating</h3>
+        <div id="ratingList" class="radio-list" role="radiogroup" aria-label="Minimum star rating"></div>
+      </section>
+    </aside>
+
+    <main class="content">
+      <div class="toolbar">
+        <p id="resultCount" class="result-count" aria-live="polite"></p>
+        <label class="sort">
+          Sort by
+          <select id="sortSelect"></select>
+        </label>
+      </div>
+
+      <p id="errorBox" class="error" hidden></p>
+
+      <section id="grid" class="grid" aria-live="polite"></section>
+
+      <section id="emptyState" class="empty" hidden>
+        <h2>No items match your criteria.</h2>
+        <p>Try loosening a filter, or reset all filters to see the full catalog.</p>
+        <button type="button" class="primary-btn" id="emptyResetBtn">Reset filters</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
