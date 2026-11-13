@@ -2,7 +2,7 @@
   "name": "ecommerce-filter-sidebar",
   "version": "1.0.0",
   "private": true,
-  "description": "VIBZO product browser with a multi-filter sidebar, server-side filtering and sorting.",
+  "description": "AuraMarket product browser with a multi-filter sidebar, server-side filtering and sorting.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

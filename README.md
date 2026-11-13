@@ -1,6 +1,6 @@
-# VIBZO: E-Commerce Product Multi-Filter Sidebar
+# AuraMarket: E-Commerce Product Multi-Filter Sidebar
 
-A VIBZO browsing interface where shoppers narrow a product inventory using three
+A AuraMarket browsing interface where shoppers narrow a product inventory using three
 simultaneous filters (category, price range, minimum star rating), with instant updates
 and a server-side "Sort By" control.
 
